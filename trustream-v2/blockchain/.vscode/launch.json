@@ -1,0 +1,37 @@
+{
+    // Usare IntelliSense per informazioni sui possibili attributi.
+    // Al passaggio del mouse vengono visualizzate le descrizioni degli attributi esistenti.
+    // Per altre informazioni, visitare: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "Local",
+        "program": "/Users/simone/.nvm/versions/node/v12.22.7/bin/npx",
+        "request": "launch",
+        "args": ["hardhat", "run", "scripts/deploy.js"],
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+    {
+        "name": "Testnet",
+        "program": "/Users/simone/.nvm/versions/node/v12.22.7/bin/npx",
+        "request": "launch",
+        "args": ["hardhat", "run", "scripts/deploy.js", "--network", "testnet"],
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/scripts/deploy.js"
+        }
+    ]
+}
