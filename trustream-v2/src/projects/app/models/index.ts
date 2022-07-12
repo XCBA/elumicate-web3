@@ -1,4 +1,4 @@
-import { getDB } from '@common/dbs/postgres'
+import { getDB } from '@common/dbs/awspostgres'
 import { DeviceDataModel } from './device_data.model'
 import { StatusModel } from './status.model'
 import { DeviceModel } from './device.model'
