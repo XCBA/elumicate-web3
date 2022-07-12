@@ -11,7 +11,7 @@ const useStyles = createStyles((theme) => ({
 
 interface TableReviewsProps {
   data: {
-    Pool : number,
+    Pool : string,
     Amount : number,
     AvailableRewards : number,
     TimeRemaining : number,

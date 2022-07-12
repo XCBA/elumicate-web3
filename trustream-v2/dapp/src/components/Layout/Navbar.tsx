@@ -99,11 +99,11 @@ export const NavbarSimple = observer(() => {
       sx={{ cursor: 'pointer' }}
       onClick={(event) => {
         if (item.link) {
-          if (item.__blank) {
-            window.open(item.link, '_blank');
-          } else {
-            router.push(item.link);
-          }
+          // if (item.__blank) {
+          //   window.open(item.link, '_blank');
+          // } else {
+          //   router.push(item.link);
+          // }
         }
       }}
     >

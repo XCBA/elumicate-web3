@@ -38,7 +38,8 @@ specifiers:
   '@web3-react/injected-connector': ^6.0.7
   axios: ^0.21.1
   bignumber.js: ^9.0.1
-  chart.js: ^3.8.0
+  chart.js: 2.9.4
+  chartjs-plugin-streaming: 1.9.0
   class-transformer: ^0.5.1
   classnames: ^2.3.1
   clipboard-polyfill: ^3.0.3
@@ -64,6 +65,7 @@ specifiers:
   numeral: ^2.0.6
   promise-retry: ^2.0.1
   react: ^17.0.0
+  react-chartjs-2: 2.11.2
   react-dom: ^17.0.0
   react-hot-toast: ^1.0.2
   react-i18next: ^11.16.9
@@ -109,7 +111,8 @@ dependencies:
   '@web3-react/injected-connector': 6.0.7
   axios: 0.21.4
   bignumber.js: 9.0.2
-  chart.js: 3.8.0
+  chart.js: 2.9.4
+  chartjs-plugin-streaming: 1.9.0_chart.js@2.9.4
   class-transformer: 0.5.1
   classnames: 2.3.1
   clipboard-polyfill: 3.0.3
@@ -133,6 +136,7 @@ dependencies:
   numeral: 2.0.6
   promise-retry: 2.0.1
   react: 17.0.2
+  react-chartjs-2: 2.11.2_6i3ouvuqcj3vgcj3off7sqrfuy
   react-dom: 17.0.2_react@17.0.2
   react-hot-toast: 1.0.2_sfoxds7t5ydpegc3knd667wn6m
   react-i18next: 11.17.3_iunkfnprfsbsde3j2gf563wwwi
@@ -3245,8 +3249,33 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /chart.js/3.8.0:
-    resolution: {integrity: sha512-cr8xhrXjLIXVLOBZPkBZVF6NDeiVIrPLHcMhnON7UufudL+CNeRrD+wpYanswlm8NpudMdrt3CHoLMQMxJhHRg==}
+  /chart.js/2.9.4:
+    resolution: {integrity: sha512-B07aAzxcrikjAPyV+01j7BmOpxtQETxTSlQ26BEYJ+3iUkbNKaOJ/nDbT6JjyqYxseM0ON12COHYdU2cTIjC7A==}
+    dependencies:
+      chartjs-color: 2.4.1
+      moment: 2.29.3
+    dev: false
+
+  /chartjs-color-string/0.6.0:
+    resolution: {integrity: sha512-TIB5OKn1hPJvO7JcteW4WY/63v6KwEdt6udfnDE9iCAZgy+V4SrbSxoIbTw/xkUIapjEI4ExGtD0+6D3KyFd7A==}
+    dependencies:
+      color-name: 1.1.4
+    dev: false
+
+  /chartjs-color/2.4.1:
+    resolution: {integrity: sha512-haqOg1+Yebys/Ts/9bLo/BqUcONQOdr/hoEr2LLTRl6C5LXctUdHxsCYfvQVg5JIxITrfCNUDr4ntqmQk9+/0w==}
+    dependencies:
+      chartjs-color-string: 0.6.0
+      color-convert: 1.9.3
+    dev: false
+
+  /chartjs-plugin-streaming/1.9.0_chart.js@2.9.4:
+    resolution: {integrity: sha512-oc0hhMz6N34ZSxDJotrFaEA8RhdmHhIsOI17U6ESXpEOaS0VrtuLd/dyNs2ps4zeW//jECSyP7Yl5MX070CeCg==}
+    peerDependencies:
+      chart.js: '>= 2.7.0 < 3'
+      moment: ^2.10.2
+    dependencies:
+      chart.js: 2.9.4
     dev: false
 
   /check-more-types/2.24.0:
@@ -5621,7 +5650,6 @@ packages:
 
   /moment/2.29.3:
     resolution: {integrity: sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==}
-    dev: true
 
   /ms/2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -6202,6 +6230,20 @@ packages:
       randombytes: 2.1.0
       safe-buffer: 5.2.1
     dev: true
+
+  /react-chartjs-2/2.11.2_6i3ouvuqcj3vgcj3off7sqrfuy:
+    resolution: {integrity: sha512-hcPS9vmRJeAALPPf0uo02BiD8BDm0HNmneJYTZVR74UKprXOpql+Jy1rVuj93rKw0Jfx77mkcRfXPxTe5K83uw==}
+    peerDependencies:
+      chart.js: ^2.3
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      chart.js: 2.9.4
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /react-dom/17.0.2_react@17.0.2:
     resolution: {integrity: sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==}
