@@ -72,7 +72,7 @@ const links: Array<HeaderSearchProps> = [
     icon: Home
   },
   {
-    link: '/stacking',
+    link: '/viewdata',
     label: 'View Data',
     icon: CloudDataConnection
   },

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { createStyles, Navbar, Group, Box, TextInput, Code, Space, ThemeIcon, Text } from '@mantine/core';
-import {  Home, 
-          Code as CodeIcon, 
-          Search, 
-          CloudDataConnection as ViewIcon,
-          Stack,
-          News,
-          Help,
-          LayersLinked } 
+import { createStyles, Navbar, Group, Box, TextInput, Code, Space, ThemeIcon, Text, Modal } from '@mantine/core';
+import {
+  Home,
+  Code as CodeIcon,
+  Search,
+  CloudDataConnection as ViewIcon,
+  Stack,
+  News,
+  Help,
+  LayersLinked
+}
   from 'tabler-icons-react';
 import { useStore } from '../../store/index';
 import { observer } from 'mobx-react-lite';
@@ -85,12 +87,14 @@ export const NavbarSimple = observer(() => {
   const { user, god } = useStore();
   const router = useRouter();
 
+  const [isview, setView] = useState(false);
+
   const data = [
-    { link: '/', label: t('dashboard'),       icon: Home },
-    { link: '/viewdata', label: 'View Data',  icon: ViewIcon },
-    { link: '/stacking', label: 'Stacking',   icon: Stack},
-    { link: '/news', label: 'News',           icon: News},
-    { link: '/aboutus', label: 'About US',    icon: Help},
+    { link: '/', label: t('dashboard'), icon: Home },
+    { link: '/viewdata', label: 'View Data', icon: ViewIcon },
+    { link: '/stacking', label: 'Stacking', icon: Stack },
+    { link: '/news', label: 'News', icon: News },
+    { link: '/aboutus', label: 'About US', icon: Help },
   ];
 
   const links = data.map((item) => (
@@ -99,6 +103,9 @@ export const NavbarSimple = observer(() => {
       sx={{ cursor: 'pointer' }}
       onClick={(event) => {
         if (item.link) {
+          if (item.label == 'View Data') {
+            setView(false);
+          }
           // if (item.__blank) {
           //   window.open(item.link, '_blank');
           // } else {
@@ -115,8 +122,9 @@ export const NavbarSimple = observer(() => {
   // if (user.layout.sidebarOpen.value) {
   //   return <></>
   // }
-      
+
   return (
+
     <Navbar p="md" hiddenBreakpoint="sm" hidden={!user.layout.sidebarOpen.value} width={{ sm: 200, lg: 300 }}>
       <Navbar.Section grow>
         <Group className={classes.header} position="apart" align={'center'}>
@@ -142,6 +150,13 @@ export const NavbarSimple = observer(() => {
           onClick={() => openSpotlight()}
         />
         {links}
+        <Modal
+          opened={isview}
+          onClose={() => setView(false)}
+          title="Introduce yourself!"
+        >
+          {/* Modal content */}
+        </Modal>
       </Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
