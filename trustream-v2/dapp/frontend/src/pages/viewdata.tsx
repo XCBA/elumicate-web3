@@ -16,69 +16,69 @@ const useStyles = createStyles((theme) => ({
 
 interface TableReviewsProps {
     data: {
-        title: string;
-        author: string;
-        year: number;
-        reviews: { positive: number; negative: number };
+        id : string;
+        address: string;
+        heart_rate: string;
+        timestamp: number;
+        created_at: string;
+        updated_at: string;
+        createdAt : string;
+        updatedAt : string;
     }[];
 }
 
 const DeviceMockData = {
     "data": [
         {
-            "title": "Foundation",
-            "author": "Isaac Asimov",
-            "year": 1951,
-            "reviews": {
-                "positive": 2223,
-                "negative": 259
-            }
+            "id": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5-1657656033",
+            "address": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5",
+            "heart_rate": 71,
+            "timestamp": 1657656033,
+            "created_at": "2022-07-12T20:00:33.468Z",
+            "updated_at": "2022-07-12T20:00:33.468Z",
+            "createdAt": "2022-07-12T20:00:33.468Z",
+            "updatedAt": "2022-07-12T20:00:33.468Z"
         },
         {
-            "title": "Frankenstein",
-            "author": "Mary Shelley",
-            "year": 1818,
-            "reviews": {
-                "positive": 5677,
-                "negative": 1265
-            }
+            "id": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5-1657656035",
+            "address": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5",
+            "heart_rate": 120,
+            "timestamp": 1657656035,
+            "created_at": "2022-07-12T20:00:35.502Z",
+            "updated_at": "2022-07-12T20:00:35.502Z",
+            "createdAt": "2022-07-12T20:00:35.502Z",
+            "updatedAt": "2022-07-12T20:00:35.502Z"
         },
         {
-            "title": "Solaris",
-            "author": "Stanislaw Lem",
-            "year": 1961,
-            "reviews": {
-                "positive": 3487,
-                "negative": 1845
-            }
+            "id": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5-1657656037",
+            "address": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5",
+            "heart_rate": 71,
+            "timestamp": 1657656037,
+            "created_at": "2022-07-12T20:00:37.559Z",
+            "updated_at": "2022-07-12T20:00:37.559Z",
+            "createdAt": "2022-07-12T20:00:37.559Z",
+            "updatedAt": "2022-07-12T20:00:37.559Z"
         },
         {
-            "title": "Dune",
-            "author": "Frank Herbert",
-            "year": 1965,
-            "reviews": {
-                "positive": 8576,
-                "negative": 663
-            }
+            "id": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5-1657656039",
+            "address": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5",
+            "heart_rate": 147,
+            "timestamp": 1657656039,
+            "created_at": "2022-07-12T20:00:39.702Z",
+            "updated_at": "2022-07-12T20:00:39.702Z",
+            "createdAt": "2022-07-12T20:00:39.702Z",
+            "updatedAt": "2022-07-12T20:00:39.702Z"
         },
         {
-            "title": "The Left Hand of Darkness",
-            "author": "Ursula K. Le Guin",
-            "year": 1969,
-            "reviews": {
-                "positive": 6631,
-                "negative": 993
-            }
+            "id": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5-1657656041",
+            "address": "0xc06d73162E9BffbCfBF1DA59C511002A8F9155E5",
+            "heart_rate": 149,
+            "timestamp": 1657656041,
+            "created_at": "2022-07-12T20:00:41.728Z",
+            "updated_at": "2022-07-12T20:00:41.728Z",
+            "createdAt": "2022-07-12T20:00:41.728Z",
+            "updatedAt": "2022-07-12T20:00:41.728Z"
         },
-        {
-            "title": "A Scanner Darkly",
-            "author": "Philip K Dick",
-            "year": 1977,
-            "reviews": {
-                "positive": 8124,
-                "negative": 1847
-            }
-        }
     ]
 };
 
@@ -87,47 +87,16 @@ export default function TableReviews() {
     const { data } = DeviceMockData;
 
     const rows = data.map((row) => {
-        const totalReviews = row.reviews.negative + row.reviews.positive;
-        const positiveReviews = (row.reviews.positive / totalReviews) * 100;
-        const negativeReviews = (row.reviews.negative / totalReviews) * 100;
-
         return (
-            <tr key={row.title}>
-                <td>
-                    <Anchor<'a'> size="sm" onClick={(event) => event.preventDefault()}>
-                        {row.title}
-                    </Anchor>
-                </td>
-                <td>{row.year}</td>
-                <td>
-                    <Anchor<'a'> size="sm" onClick={(event) => event.preventDefault()}>
-                        {row.author}
-                    </Anchor>
-                </td>
-                <td>{Intl.NumberFormat().format(totalReviews)}</td>
-                <td>
-                    <Group position="apart">
-                        <Text size="xs" color="teal" weight={700}>
-                            {positiveReviews.toFixed(0)}%
-                        </Text>
-                        <Text size="xs" color="red" weight={700}>
-                            {negativeReviews.toFixed(0)}%
-                        </Text>
-                    </Group>
-                    <Progress
-                        classNames={{ bar: classes.progressBar }}
-                        sections={[
-                            {
-                                value: positiveReviews,
-                                color: theme.colorScheme === 'dark' ? theme.colors.teal[9] : theme.colors.teal[6],
-                            },
-                            {
-                                value: negativeReviews,
-                                color: theme.colorScheme === 'dark' ? theme.colors.red[9] : theme.colors.red[6],
-                            },
-                        ]}
-                    />
-                </td>
+            <tr key={row.id}>
+                <td>{row.id}</td>
+                <td>{row.address}</td>
+                <td>{row.heart_rate}</td>
+                <td>{row.createdAt}</td>
+                {/* <td>{row.created_at}</td>
+                <td>{row.updated_at}</td>
+                <td>{row.createdAt} </td>
+                <td>{row.updatedAt} </td> */}
             </tr>
         );
     });
@@ -138,11 +107,10 @@ export default function TableReviews() {
                 <Table sx={{ minWidth: 800 }} verticalSpacing="xs">
                     <thead>
                         <tr>
-                            <th>Book title</th>
-                            <th>Year</th>
-                            <th>Author</th>
-                            <th>Reviews</th>
-                            <th>Reviews distribution</th>
+                            <th>ID</th>
+                            <th>Address</th>
+                            <th>HeartRate</th>
+                            <th>Timestamp</th>
                         </tr>
                     </thead>
                     <tbody>{rows}</tbody>
