@@ -3,7 +3,7 @@ features:
   - blockchain
 host:
   privatekey: 6a579f95a5b679883c9e338ed3d1a0522b6f84ffdeee22f8a5b8cb08a6890346
-startHeight: 15215718
+startHeight: 15288600
 dataSources:
   - kind: ethereum/contract
     name: DataSourceRegistry
